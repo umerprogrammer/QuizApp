@@ -60,8 +60,8 @@ var questions = [
     },
 ];
 
-var vhours = "00";
-var vmin = "00";
+var vhours = "01";
+var vmin = "30";
 var vsec = "00";
 
 
