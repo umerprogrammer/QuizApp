@@ -72,14 +72,30 @@ var optButton  = document.getElementById('buttons');
 var nextButton  = document.getElementById('btnNext');
 var backButton  = document.getElementById('btnBack');
 var showButton  = document.getElementById('btnShowAll');
+var btnResult = document.getElementById("btnShowResult");
+var btnstartAgain = document.getElementById("btnstartAgain");
+
+var resultBlock = document.getElementById("resultBlock");
+var questBlock = document.getElementById("questBlock");
 
 var secnd = document.getElementById("sec");
 var min = document.getElementById("min");
 var hours = document.getElementById("hrs");
 
+var totmarks = document.getElementById("totmarks");
+var obtmarks = document.getElementById("obtmarks");
+var perc = document.getElementById("perc");
+var grade = document.getElementById("grade");
+var reuslt = document.getElementById("reuslt");
+
 var interval;
 var index = 0;
 var isFinish = 0;
+var totalMarks = 60;
+var obtainmarks = 0;
+var percentage = 0;
+var reusltStatus = "Failed";
+var resultgrade = "A";
 
 totQuest.innerHTML = questions.length;
 curQuest.innerHTML = index +1;
@@ -96,9 +112,9 @@ function showQuestion(){
     {  
         var clsSpan =  isFinish == 1 && questions[index].correctAns == questions[index].options[i]? "d-block" : "d-none";
         var clsButton = isFinish == 1 && questions[index].correctAns == questions[index].options[i]? "btn-info" : "btn-outline-success";
-        optButton.innerHTML+=`   <div class="col-6">
+        optButton.innerHTML+=`   <div class="col-md-6">
                         <button type="button" class="btn ${clsButton} d-flex justify-content-between" onclick="checkQuest(this,'${questions[index].correctAns}')">
-                        ${questions[index].options[i]}
+                        <span>${questions[index].options[i]}</span>
                         <span class="${clsSpan}"><i class="fa-regular fa-circle-check"></i></span>
                     </button> </div>  `;
     }
@@ -108,10 +124,21 @@ function showQuestion(){
 function checkQuest(a,b){
   if(a.innerText == b)
   {
+    obtainmarks += 10;
     //a.firstElementChild.style.display = "block";
   }
     
 }
+
+function showResult(){
+    questBlock.classList.replace("d-block","d-none");
+    resultBlock.classList.replace("d-none","d-block");
+
+    createResult();
+    btnstartAgain.classList.replace("d-none","d-block");
+    
+ 
+  }
 
 function nextQuestion(){
     
@@ -139,7 +166,17 @@ function finishQuiz(){
     // nextButton.style.display="none";
     nextButton.value = "Next";
     nextButton.classList.replace("btn-outline-danger","btn-outline-success");
+
+    btnResult.classList.replace("d-none","d-block");
+
+
+    clearInterval(interval);
 }
+
+function startAgain(){
+    location.reload()   
+}
+
 function showAll(){
     isFinish = 1;
     optButton.innerHTML = "";
@@ -192,6 +229,38 @@ function questTime(){
         }
         
     }, 1000);
+}
+
+function createResult(){
+    if(obtainmarks > 0)
+        percentage = Math.round( (obtainmarks/totalMarks)*100,2);
+    if(percentage <= 0 )
+    {
+        reusltStatus = "Failed";
+        resultgrade = "-";
+    }
+    else if(percentage >= 80)
+    {
+        reusltStatus = "Passed";
+        resultgrade = "A+";
+    }
+    else if(percentage >= 60 && percentage <= 79.99)
+    {
+        reusltStatus = "Passed";
+        resultgrade = "A";
+    }
+    else if(percentage <= 59.99)
+    {
+        reusltStatus = "Failed";
+        resultgrade = "-";
+    }
+
+    totmarks.innerHTML = totalMarks.toString();
+    obtmarks.innerHTML = obtainmarks.toString();
+    grade.innerHTML = resultgrade.toString();
+    perc.innerHTML = percentage.toString();
+    reuslt.innerHTML = reusltStatus.toString();
+        
 }
 
 showQuestion();

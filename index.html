@@ -21,24 +21,94 @@
     <div class="main-container">
         <div class="container">
             <div class="card">
-                <!-- <div class="card"> -->
-                <div class="card-header w-100 d-flex justify-content-between align-items-center">
-                    <span class="fs-2 appname">
-                        QUIZ APP
-                    </span>
-                    <div class="time-left d-flex  justify-content-between align-items-center p-1 ">
-                        <span class="fs-5 fw-bold time-descr">Time Left</span>
-                    <div class="time fs-4 ">
-                        <span class="hrs" id="hrs">00</span>
-                        <span>:</span>
-                        <span class="min" id="min">00</span>
-                        <span>:</span>
-                        <span class="sec" id="sec">00</span>
+                <div class="card-header w-100 d-flex justify-content-between align-items-center row">
+
+                    <div class="col-md-6">
+                        <span class="fs-2 appname ">
+                            QUIZ APP
+                        </span>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <div class="time-left d-flex  justify-content-between align-items-center p-1 ">
+                            <span class="fs-5 fw-bold time-descr">Time Left</span>
+                            <div class="time fs-4">
+                                <span class="hrs" id="hrs">00</span>
+                                <span>:</span>
+                                <span class="min" id="min">00</span>
+                                <span>:</span>
+                                <span class="sec" id="sec">00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
 
-                <div class="card-body w-100 ">
+                <div class="card-body w-100">
+                    <div class="d-none"  id="resultBlock">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3">
+                                <span>
+                                    Total Marks :
+                                </span>
+                            </div>
+                            <div class="col-md-3 ">
+                                <span id="totmarks">
+                                    60
+                                </span>
+                            </div>
+                        </div>
+                            <div class="row d-flex justify-content-center">
+                            <div class="col-md-3">
+                                <span>
+                                    Obtained Marks :
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span id="obtmarks">
+                                    60
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3">
+                                <span>
+                                    Percentage :
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span id="perc">
+                                    100
+                                </span>
+                                <span id="totmarks">
+                                    %
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3">
+                                <span>
+                                    Result Status :
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span id="grade">
+                                    A
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3">
+                                <span>
+                                    Result Status :
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span id="reuslt">
+                                    Passed
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-block" id="questBlock">
                     <div class="quest">
                         <input class="form-control" type="text" name="txtquiz" id="txtquiz"
                             value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
@@ -53,21 +123,36 @@
                     </div>   -->
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="d-flex gap-2 w-50">
-                            <input type="button" value="Back" class="btn btn-outline-primary btn-sm w-25" id="btnBack" onclick="backQuestion()">
-                            <input type="button" value="Next" class="btn btn-outline-success btn-sm w-25" id="btnNext" onclick="nextQuestion()">
-                            <input type="button" value="Show Answer" class="btn btn-outline-warning btn-sm w-25" btn-sm w-75" id="btnShowAll" onclick="showAll()">
+                    <div class="d-flex justify-content-between align-items-center row ">
+                        <div class="col-md-6">
+                            <div class="d-flex gap-2 ">
+                                <input type="button" value="Back" class="btn btn-outline-primary btn-sm w-25"
+                                    id="btnBack" onclick="backQuestion()">
+                                <input type="button" value="Next" class="btn btn-outline-success btn-sm w-25"
+                                    id="btnNext" onclick="nextQuestion()">
+                                <input type="button" value="Show Answer" class="btn btn-outline-warning btn-sm w-50"
+                                    id="btnShowAll" onclick="showAll()">
+                                <input type="button" value="Show Result" class="btn btn-outline-info btn-sm w-25 d-none "
+                                    id="btnShowResult" onclick="showResult()">
+                                   
+                            </div>
                         </div>
-                        <div class="noofquest">
-                            <p class="curQuesIndex" id="curQuesIndex">0</p>
-                            <p>/</p>
-                            <p class="totQuesIndex" id="totQuesIndex">0</p>
+                        <div class="col-md-6">
+                            <div class="noofquest">
+                                <p class="curQuesIndex" id="curQuesIndex">0</p>
+                                <p>/</p>
+                                <p class="totQuesIndex" id="totQuesIndex">0</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end ">
+                <input type="button" value="Start Again" class="btn btn-outline-info btn-sm w-25 d-none"
+                id="btnstartAgain" onclick="startAgain()">
             </div>
-            <!-- </div> -->
+            </div>
+
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
