@@ -93,9 +93,9 @@ function getData() {
     })
   });
 }
+ 
 
-
-//////////////// SELECT RECORD ////////////////
+//////////////// SELECT RECORD - A ////////////////
 
 window.selectRow = function (data) {
   var objectData = JSON.parse(JSON.stringify(data));
@@ -109,7 +109,7 @@ window.selectRow = function (data) {
 }
 
 
-////////////// DELETE RECORD ////////////
+////////////// DELETE RECORD - B ////////////
 
 window.deleteQuest = function () {
   dialogbox("Delete Record","Are you sure, you want to delete this record?","block","block",true);
@@ -130,7 +130,7 @@ window.deleteQuest = function () {
 }
 
 
-//////////////// UPDATE RECORD ////////////////
+//////////////// UPDATE RECORD - C ////////////////
 
 window.updateQuest = function () {
   dialogbox("Update Record","Are you sure, you want to Edit this record?","block","block",true);
@@ -158,7 +158,7 @@ window.updateQuest = function () {
   });
 }
 
-//////////////// CLEARE CONTROL ////////////////
+//////////////// CLEARE CONTROL - D ////////////////
 
 window.clearcontrol = function () {
  // dialogbox("Confirmation","Are you sure, you want to delete this record?","block","block",true);
