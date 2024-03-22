@@ -182,7 +182,7 @@ function dialogbox(title, message, btnok, btncance, dialgStatus) {
     confirmationModal.show();
 }
 
- 
+
 await getData();
 
 

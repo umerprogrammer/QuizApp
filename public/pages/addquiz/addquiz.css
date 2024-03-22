@@ -1,0 +1,160 @@
+*{
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.main-container{
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+.container{
+    display: flex;
+    justify-content: center;
+
+}
+.noofquest{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+.curQuesIndex{
+    font-size: 25px;
+}
+.totQuesIndex{
+    font-size: 15px;
+}
+.main-card{
+    border: 1px solid #ccc;
+    width: 80%;
+    /* padding: 10px 20px ; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 1px 2px 2px black;
+
+}
+.cardbody{
+    height: 85vh;
+    overflow-y: auto;
+}
+
+.grid-quest{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.card-header{
+    background-color: darkseagreen !important;
+}
+
+.quest{
+    width: 100%;
+}
+.quest input{
+    width: 100%;    
+    height: 40px;
+    border-radius: 11px;
+    margin-bottom: 30px;
+    padding:5px ;
+
+}
+.options{
+    width: 100%;
+}
+.options button{
+    cursor: pointer;
+    width: 100%;
+    padding: 5px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 11px; 
+    text-align: left;
+}
+
+#btnShowAll{
+ display: none;
+}
+
+    /* .btnNext{
+        border :0;
+        outline :0;
+        border: 1px solid black;
+
+        cursor: pointer;
+        width: 100px;
+        padding: 5px;
+        border-radius: 11px; 
+        
+    } */
+
+#icon-check{
+ display: none;
+}
+
+#icon-check-display{
+    display: block;
+}
+
+.time{
+    background-color: rgb(35, 7, 134) !important;
+    color: white;
+    padding: 0 10px;
+    border-radius: 10px;
+    border:1px groove rgb(113, 200, 230);
+    box-shadow: 0px 0px 1px rgb(35, 7, 134);
+    width: 140px;
+}
+
+.time-left{
+    background-color: rgb(113, 200, 230);
+    width:250px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.time-descr{
+    color: rgb(35, 7, 134) !important;  
+}
+
+.appname{
+    color: rgb(35, 7, 134) !important;  
+    font-weight: 600;
+}
+
+table thead{
+    position: sticky; 
+    top:0;
+    height: 30px;
+    background-color: #2263ee;
+    color: #fff;
+    font-size: 14px;
+}
+
+table tbody tr:hover{
+    cursor: pointer;
+    background-color: aqua;
+}
+
+table td{
+    font-size: 12px;
+    border-bottom:1px solid #ccc ;
+    border-left:1px solid #ccc ;
+    padding: 5px 2px;
+}
+
+.table-note{
+    color: #ec1515;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.td-showquest{
+    max-width: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
